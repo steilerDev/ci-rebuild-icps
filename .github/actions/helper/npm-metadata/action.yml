@@ -11,6 +11,9 @@ outputs:
   name:
     description: The name of the npm package
     value: ${{ steps.get-config.outputs.name }}
+  command:
+    description: The command name of the installable binary
+    value: ${{ steps.get-config.outputs.command }} 
 runs:
   using: composite
   steps:
@@ -19,3 +22,4 @@ runs:
       run: |
         echo "version=$(jq -r .version ${{ inputs.package }})" >> $GITHUB_OUTPUT
         echo "name=$(jq -r .name ${{ inputs.package }})" >> $GITHUB_OUTPUT
+        echo "command=$(jq .bin ${{ inputs.package }} | jq -r 'keys[0]')" >> $GITHUB_OUTPUT

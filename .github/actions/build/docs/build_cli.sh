@@ -1,7 +1,7 @@
 #!/bin/bash
 
 OUT_FILE="$1/user-guides/cli.md"
-BIN="icloud-photos-sync"
+BIN="$2"
 > $OUT_FILE
 
 echo '# CLI Reference' >> $OUT_FILE

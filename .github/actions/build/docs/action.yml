@@ -12,17 +12,21 @@ inputs:
 runs:
   using: composite
   steps:
-    - id: get-config
+    - id: get-docs-config
       shell: bash
       run: | 
         echo "site-dir=$(grep -oP "site_dir: '\K.+'" ${{ inputs.docs-path }}/mkdocs.yml | head -c-2)" >> $GITHUB_OUTPUT
         echo "docs-dir=$(grep -oP "docs_dir: '\K.+'" ${{ inputs.docs-path }}/mkdocs.yml | head -c-2)" >> $GITHUB_OUTPUT
+    - id: get-npm-metadata
+      uses: ./.github/actions/helper/npm-metadata
+      with:
+        package: ${{ inputs.app-path }}/package.json
     - id: build-readme
       shell: bash
-      run: cp README.md LICENSE ${{ inputs.docs-path }}/${{ steps.get-config.outputs.docs-dir }}/
+      run: cp README.md LICENSE ${{ inputs.docs-path }}/${{ steps.get-docs-config.outputs.docs-dir }}/
     - id: build-cli-reference
       shell: bash
-      run: ${{ github.action_path }}/build_cli.sh ${{ inputs.docs-path }}/${{ steps.get-config.outputs.docs-dir }}
+      run: ${{ github.action_path }}/build_cli.sh "${{ inputs.docs-path }}/${{ steps.get-docs-config.outputs.docs-dir }}" "${{ steps.get-npm-metadata.outputs.command }}"
     - id: build-mkdocs
       shell: bash
       run: (cd ${{ inputs.docs-path }}; mkdocs build)
@@ -30,7 +34,7 @@ runs:
       uses: dawidd6/action-download-artifact@v2
       with:
         name: coverage-artifact
-        path: ${{ inputs.docs-path }}/${{ steps.get-config.outputs.site-dir }}/dev/coverage
+        path: ${{ inputs.docs-path }}/${{ steps.get-docs-config.outputs.site-dir }}/dev/coverage
         workflow: event_pr.yml
         workflow_conclusion: ""
         branch: beta
@@ -38,4 +42,4 @@ runs:
     - id: upload-artifact
       uses: actions/upload-pages-artifact@v1
       with:
-        path: ${{ inputs.docs-path }}/${{ steps.get-config.outputs.site-dir }}
+        path: ${{ inputs.docs-path }}/${{ steps.get-docs-config.outputs.site-dir }}
