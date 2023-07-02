@@ -30,19 +30,9 @@
 </p>
 <hr>
 <p align="center">
-  <a href="https://github.com/steilerDev/icloud-photos-sync/actions/workflows/monitor_api.yml">
-    <img alt="API Status" src="https://img.shields.io/github/actions/workflow/status/steilerDev/icloud-photos-sync/monitor_api.yml?branch=main&label=API%20Status&style=for-the-badge&logo=githubactions&logoColor=white">
-  </a>
-  <a href="https://github.com/steilerDev/icloud-photos-sync/actions/workflows/event_push.yml">
-    <img alt="Nightly Release Status" src="https://img.shields.io/github/actions/workflow/status/steilerDev/icloud-photos-sync/event_push.yml?branch=dev&label=Nightly%20Release&style=for-the-badge&logo=githubactions&logoColor=white">
-  </a>
-  <a href="https://github.com/steilerDev/icloud-photos-sync/actions/workflows/event_push.yml">
-    <img alt="Beta Release Status" src="https://img.shields.io/github/actions/workflow/status/steilerDev/icloud-photos-sync/event_push.yml?branch=beta&label=Beta%20Release&style=for-the-badge&logo=githubactions&logoColor=white">
-  </a>
-  <a href="https://github.com/steilerDev/icloud-photos-sync/actions/workflows/event_push.yml">
-    <img alt="Production Release Status" src="https://img.shields.io/github/actions/workflow/status/steilerDev/icloud-photos-sync/event_push.yml?branch=main&label=Production%20Release&style=for-the-badge&logo=githubactions&logoColor=white">
-  </a>
 </p>
+<hr>
+<hr>
 <p align="center">
   <a href="https://steilerdev.github.io/icloud-photos-sync/dev/coverage/">
     <img alt="Test Coverage (Lines)" src="https://img.shields.io/badge/dynamic/json?color=success&label=Coverage%20%28Lines%29&style=for-the-badge&logo=jest&logoColor=white&query=%24.total.lines.pct&suffix=%25&url=https%3A%2F%2Fsteilerdev.github.io%2Ficloud-photos-sync%2Fdev%2Fcoverage%2Fcoverage-summary.json">
@@ -53,7 +43,7 @@
 </p>
 <p align="center">
   <a href="https://github.com/steilerDev/icloud-photos-sync/blob/main/CODE_OF_CONDUCT.md">
-    <img alt="Code of Conduct" src="https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg"
+    <img alt="Code of Conduct" src="https://img.shields.io/badge/Contributor_Covenant-2.1-blue?style=for-the-badge">
   </a>
 </p>
 <hr>
@@ -145,3 +135,23 @@ As this application is using an undocumented public API, there are a couple of k
 ## Contributing & Feedback
 
 Please check the [contributing guidelines](https://github.com/steilerDev/icloud-photos-sync/blob/main/CONTRIBUTING.md) to learn how to engage with this project.
+
+### Workflow Status
+
+<p align="center">
+  <a href="https://github.com/steilerDev/icloud-photos-sync/actions/workflows/event_push.yml">
+    <img alt="Nightly Release Status" src="https://img.shields.io/github/actions/workflow/status/steilerDev/icloud-photos-sync/event_push.yml?branch=dev&label=Nightly&style=for-the-badge&logo=githubactions&logoColor=white">
+  </a>
+  <a href="https://github.com/steilerDev/icloud-photos-sync/actions/workflows/event_push.yml">
+    <img alt="Beta Release Status" src="https://img.shields.io/github/actions/workflow/status/steilerDev/icloud-photos-sync/event_push.yml?branch=beta&label=Beta&style=for-the-badge&logo=githubactions&logoColor=white">
+  </a>
+  <a href="https://github.com/steilerDev/icloud-photos-sync/actions/workflows/event_push.yml">
+    <img alt="Production Release Status" src="https://img.shields.io/github/actions/workflow/status/steilerDev/icloud-photos-sync/event_push.yml?branch=main&label=Production&style=for-the-badge&logo=githubactions&logoColor=white">
+  </a>
+</p>
+<hr>
+<p align="center">
+  <a href="https://github.com/steilerDev/icloud-photos-sync/actions/workflows/monitor_api.yml">
+    <img alt="API Status" src="https://img.shields.io/github/actions/workflow/status/steilerDev/icloud-photos-sync/monitor_api.yml?branch=main&label=API%20Status&style=for-the-badge&logo=githubactions&logoColor=white">
+  </a>
+</p>
