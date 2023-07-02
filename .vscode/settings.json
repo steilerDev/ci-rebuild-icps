@@ -77,7 +77,11 @@
         "vyas",
         "webmproject",
         "webservices",
-        "Yons"
+        "Yons",
+        "buildx",
+        "dockerhub",
+        "releaserc",
+        "typedoc"
     ],
     "jest.autoRevealOutput": "on-run",
     "jest.showCoverageOnLoad": true,
@@ -120,5 +124,15 @@
         "!vue",
         "dockerfile",
         "jest-snapshot"
-    ]
+    ],
+    "conventionalCommits.gitmoji": false,
+    "conventionalCommits.promptBody": false,
+    "conventionalCommits.autoCommit": true,
+    "conventionalCommits.editor.keepAfterSave": false,
+    "conventionalCommits.promptCI": false,
+    "conventionalCommits.promptFooter": true,
+    "conventionalCommits.promptScopes": false,
+    "conventionalCommits.showEditor": false,
+    "conventionalCommits.showNewVersionNotes": false,
+    "conventionalCommits.silentAutoCommit": false
 }

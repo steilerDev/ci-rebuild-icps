@@ -38,7 +38,7 @@ updates:
 
   # Maintain dependencies for pip (docs site)
   - package-ecosystem: "pip"
-    directory: "/pages"
+    directory: "/docs"
     target-branch: "dev"
     schedule:
       interval: "weekly"

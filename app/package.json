@@ -1,6 +1,6 @@
 {
-  "name": "icloud-photos-sync",
-  "version": "1.2.0-nightly",
+  "name": "ci-rebuild-icps",
+  "version": "0.0.0-local-dev",
   "description": "One-way sync engine for the iCloud Photos Library into the native file system with archiving capabilities",
   "preferGlobal": true,
   "type": "module",
@@ -15,12 +15,11 @@
     "doc": "npx typedoc",
     "test": "NODE_NO_WARNINGS=1 NODE_OPTIONS=--experimental-vm-modules npx jest --config jest.config.json test/unit/",
     "test-api": "NODE_NO_WARNINGS=1 NODE_OPTIONS=--experimental-vm-modules npx jest --config jest.config.json test/api/",
-    "test-all": "NODE_NO_WARNINGS=1 NODE_OPTIONS=--experimental-vm-modules npx jest --config jest.config.json",
     "execute": "node bin/main.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/steilerDev/icloud-photos-sync.git"
+    "url": "git+https://github.com/steilerDev/ci-rebuild-icps.git"
   },
   "keywords": [
     "icloud",
@@ -30,9 +29,9 @@
   "author": "Frank Steiler",
   "license": "GPL-3.0-or-later",
   "bugs": {
-    "url": "https://github.com/steilerDev/icloud-photos-sync/issues"
+    "url": "https://github.com/steilerDev/ci-rebuild-icps/issues"
   },
-  "homepage": "https://icloud-photos-sync.steilerdev.de/",
+  "homepage": "https://ci-rebuild-icps.steilerdev.de/",
   "engines": {
     "node": ">=18.8.0"
   },
