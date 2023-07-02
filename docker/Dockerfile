@@ -7,7 +7,7 @@ RUN apk update && \
     apk add curl vim bash jq && \
     rm -rf /var/cache/apk/*
 
-# Installing icloud-photos-sync 
+# Installing application binary
 RUN npm install -g /opt/*.tgz
 
 # Installing helper scripts

@@ -12,8 +12,8 @@ on:
       - '**'
 
 jobs:
-  build-release:
-    name: build-release
+  ci:
+    name: ci
     uses: ./.github/workflows/artifacts_build-release.yml
     with:
       all-artifacts: ${{ github.ref_name == 'main' }} # Build and release all artifacts only on main branch
