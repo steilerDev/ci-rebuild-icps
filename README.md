@@ -30,10 +30,6 @@
 </p>
 <hr>
 <p align="center">
-</p>
-<hr>
-<hr>
-<p align="center">
   <a href="https://steilerdev.github.io/icloud-photos-sync/dev/coverage/">
     <img alt="Test Coverage (Lines)" src="https://img.shields.io/badge/dynamic/json?color=success&label=Coverage%20%28Lines%29&style=for-the-badge&logo=jest&logoColor=white&query=%24.total.lines.pct&suffix=%25&url=https%3A%2F%2Fsteilerdev.github.io%2Ficloud-photos-sync%2Fdev%2Fcoverage%2Fcoverage-summary.json">
   </a>
@@ -149,7 +145,6 @@ Please check the [contributing guidelines](https://github.com/steilerDev/icloud-
     <img alt="Production Release Status" src="https://img.shields.io/github/actions/workflow/status/steilerDev/icloud-photos-sync/event_push.yml?branch=main&label=Production&style=for-the-badge&logo=githubactions&logoColor=white">
   </a>
 </p>
-<hr>
 <p align="center">
   <a href="https://github.com/steilerDev/icloud-photos-sync/actions/workflows/monitor_api.yml">
     <img alt="API Status" src="https://img.shields.io/github/actions/workflow/status/steilerDev/icloud-photos-sync/monitor_api.yml?branch=main&label=API%20Status&style=for-the-badge&logo=githubactions&logoColor=white">
