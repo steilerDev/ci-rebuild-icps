@@ -33,7 +33,7 @@ runs:
       run: |
         # Disabling Github release plugin on dev release
         cat ${{ inputs.release-dir }}/.releaserc.json |\
-          jq 'del(.plugins[1])' |\
+          jq 'del(.plugins)' |\
           sponge ${{ inputs.release-dir }}/.releaserc.json
     - id: configure-beta-release
       shell: bash
