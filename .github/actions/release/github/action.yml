@@ -24,6 +24,8 @@ runs:
     - id: clean-after-prod-release
       if: github.ref_name == 'main'
       uses: ./.github/actions/helper/clean-after-prod-release
+      with:
+        gh-token: ${{ inputs.gh-token }}
     - id: get-git-metadata
       uses: ./.github/actions/helper/git-metadata
     - id: get-release-url
