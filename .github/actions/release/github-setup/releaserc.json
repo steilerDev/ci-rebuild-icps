@@ -31,6 +31,7 @@
             "writerOpts": {
                 "commitsSort": ["subject"]
             },
+            "preset": "conventionalchangelog",
             "presetConfig": {
               "types": [
                   { "type": "majorfeat","section": "Features",                 "hidden": false},
