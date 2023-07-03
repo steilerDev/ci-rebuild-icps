@@ -31,11 +31,11 @@ runs:
       with:
         package: ${{ inputs.release-dir }}/app/package.json
     - id: package-artifact
-      if: steps.get-git-metadata.outputs.current-tag != ""
+      if: steps.get-git-metadata.outputs.current-tag != ''
       shell: bash
       run: mv ${{ inputs.release-dir }}/*.tgz npm-pack.tgz
     - id: upload-artifact
-      if: steps.get-git-metadata.outputs.current-tag != ""
+      if: steps.get-git-metadata.outputs.current-tag != ''
       uses: actions/upload-artifact@v3
       with:
         name: ${{ inputs.artifact-name }}
