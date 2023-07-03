@@ -47,7 +47,6 @@ runs:
                     { "type": "ci",           "release": "patch" },
                     { "type": "chore",        "release": "patch" },
                     { "type": "docs",         "release": "patch" },
-                    { "type": "in-progress",  "release": "patch" },
                     { "type": "style",        "release": false }
                 ]
             }

@@ -45,8 +45,7 @@
                   { "type": "chore",      "section": "Maintenance",              "hidden": false},
                   { "type": "docs",       "section": "Documentation",            "hidden": false},
                   { "type": "revert",     "section": "Reverts",                  "hidden": false},
-                  { "type": "style",      "section": "Styles",                   "hidden": true},
-                  { "type": "in-progress","section": "In-Progress",              "hidden": true}
+                  { "type": "style",      "section": "Styles",                   "hidden": true}
               ]
             }
         }
