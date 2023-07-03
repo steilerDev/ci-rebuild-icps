@@ -23,4 +23,10 @@ runs:
     - id: install-app
       shell: bash
       run: (cd ${{ inputs.app-path }}; npm link)
-
+    - id: install-helper
+      shell: bash
+      run: |
+        chmod 755 $(pwd)/docker/rootfs/root/enter_mfa.sh
+        ln -s $(pwd)/docker/rootfs/root/enter_mfa.sh /usr/local/bin/enter_mfa
+        chmod 755 $(pwd)/docker/rootfs/root/resend_mfa.sh
+        ln -s $(pwd)/docker/rootfs/root/resend_mfa.sh /usr/local/bin/resend_mfa
