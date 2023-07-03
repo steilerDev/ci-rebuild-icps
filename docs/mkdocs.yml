@@ -25,7 +25,6 @@ nav:
     - 'Test & Deployment':
       - 'Test Environment': dev/test-environment.md
       - 'Coverage': dev/coverage/index.html
-  - 'Changelog': CHANGELOG.md
 
 theme:
   name: material
