@@ -286,7 +286,7 @@ This projects' development process loosely follows git-flow by (Vincent Driessen
 
 External PRs should therefore target the dev branch. This will trigger unit tests, which need to pass, in order for merging to be considered. Every push to the `dev` branch will trigger a pre-release to the `nightly` channel on DockerHub and npm through [semantic-release](https://github.com/semantic-release/semantic-release).
 
-Once the `dev` branch has reached a certain stage, changes can be staged for release on the `beta` channel. This happens through a Pull Request against the `beta` branch. This will trigger more thorough checks, including building all assets necessary for production release, as well as E2E and API tests. Once the pull request has been merged, [semantic release](https://github.com/semantic-release/semantic-release) will perform a release to the `beta` channel on DockerHub and npm.
+Once the `dev` branch has reached a certain stage, changes can be staged for release on the `beta` channel. This happens through a Pull Request against the `beta` branch. This will trigger more thorough checks, including building all assets necessary for release, as well as E2E and API tests. Once the pull request has been merged, [semantic release](https://github.com/semantic-release/semantic-release) will perform a release to the `beta` channel on DockerHub and npm.
 
 In order to run a production release, a PR against the main branch is required - triggering the same sanity checks as the `beta` branch. After passing and merging, a production release will deploy the artifacts to DockerHub, npm and also update documentations.
 
