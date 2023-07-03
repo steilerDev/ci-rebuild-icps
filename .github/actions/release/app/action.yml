@@ -47,7 +47,7 @@ runs:
     - id: get-release-url
       shell: bash
       run: |
-        if [ "${{ steps.get-git-metadata.outputs.current-tag }}" -ne "" ]; then
+        if [ "${{ steps.get-git-metadata.outputs.current-tag }}" != "" ]; then
           echo "url=https://www.npmjs.com/package/${{ steps.get-npm-metadata.outputs.name }}/v/${{ steps.get-npm-metadata.outputs.version }}" >> $GITHUB_OUTPUT
         else
           echo "url=no-release" >> $GITHUB_OUTPUT

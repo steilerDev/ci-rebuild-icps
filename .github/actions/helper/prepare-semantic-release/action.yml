@@ -1,0 +1,38 @@
+name: prepare-semantic-release
+description: Extracts metadata from the npm package
+inputs:
+  release-config-dir:
+    description: The location of the release configuration
+    required: true
+  release-dir:
+    description: The target dir, in which the release will be performed
+    required: true
+runs:
+  using: composite
+  steps:
+    - id: setup-dependencies
+      shell: bash
+      run: sudo apt-get install -y moreutils
+    - id: setup-fs
+      shell: bash
+      run: |
+        mkdir ${{ inputs.release-dir }}
+
+        cp ${{ inputs.release-config-dir }}/package.json \
+          ${{ inputs.release-config-dir }}/package-lock.json \
+          ${{ inputs.release-config-dir }}/../common.releaserc.json \
+          ${{ inputs.release-config-dir }}//../node-version \
+          ${{ inputs.release-dir }}/
+
+        cp ${{ inputs.release-config-dir}}/releaserc.json ${{ inputs.release-dir }}/.releaserc.json
+
+        tree -a ${{ inputs.release-dir }}
+    - id: setup-node
+      uses: actions/setup-node@v3
+      with:
+        node-version-file: ${{ inputs.release-dir }}/node-version
+        cache: npm
+        cache-dependency-path: ${{ inputs.release-dir }}
+    - id: setup-npm
+      shell: bash
+      run: (cd ${{ inputs.release-dir }}; npm ci)

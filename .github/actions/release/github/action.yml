@@ -26,7 +26,7 @@ runs:
     - id: get-release-url
       shell: bash
       run: |
-        if [ "${{ steps.get-git-metadata.outputs.current-tag }}" -ne "" ]; then
+        if [ "${{ steps.get-git-metadata.outputs.current-tag }}" != "" ]; then
            echo "url=https://github.com/${{ steps.get-git-metadata.outputs.owner }}/${{ steps.get-git-metadata.outputs.name }}/releases/tag/${{ steps.get-git-metadata.outputs.current-tag }}" >> $GITHUB_OUTPUT
         else
           echo "url=no-release" >> $GITHUB_OUTPUT
