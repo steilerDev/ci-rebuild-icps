@@ -18,4 +18,4 @@ runs:
       run: |
         echo "owner=${{ github.repository_owner }}" >> $GITHUB_OUTPUT
         echo "name=${{ github.event.repository.name }}" >> $GITHUB_OUTPUT
-        echo "current-tag="$(git tag --points-at HEAD | head -n 1)" >> $GITHUB_OUTPUT
+        echo "current-tag=$(git tag --points-at HEAD | head -n 1)" >> $GITHUB_OUTPUT

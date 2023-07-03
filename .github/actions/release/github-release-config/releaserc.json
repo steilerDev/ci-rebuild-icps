@@ -20,8 +20,8 @@
                   { "type": "ci",       "section": "Continuous Integration",   "hidden": false},
                   { "type": "chore",    "section": "Maintenance",              "hidden": false},
                   { "type": "docs",     "section": "Documentation",            "hidden": false},
-                  { "type": "style",    "section": "Styles",                   "hidden": false},
-                  { "type": "revert",   "section": "Reverts",                  "hidden": false}
+                  { "type": "revert",   "section": "Reverts",                  "hidden": false},
+                  { "type": "style",    "section": "Styles",                   "hidden": true}
               ]
             }
         }
