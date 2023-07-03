@@ -52,10 +52,6 @@ runs:
             }
         ]]' |\
         sponge ${{ inputs.release-dir }}/.releaserc.json
-
-        tree -a ${{ inputs.release-dir }}
-        echo "##### RELEASERC"
-        cat ${{ inputs.release-dir }}/.releaserc.json
     - id: setup-node
       uses: actions/setup-node@v3
       with:

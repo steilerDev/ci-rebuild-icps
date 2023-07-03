@@ -9,9 +9,8 @@ As a contributor, here are the guidelines we would like you to follow:
  - [Issues and Bugs](#issue)
  - [Feature Requests](#feature)
  - [Submission Guidelines](#submit)
- - [Coding Rules](#rules)
  - [Commit Message Guidelines](#commit)
- - [Signing the CLA](#cla)
+ - [Release Process](#release)
 
 
 ## <a name="coc"></a> Code of Conduct
@@ -281,7 +280,7 @@ The content of the commit message body should contain:
 - a clear description of the reason for reverting the commit message.
 
 
-## Release Process
+## <a name="release"></a> Release Process
 
 This projects' development process loosely follows git-flow by (Vincent Driessen)[http://nvie.com/]. Feature development happens on the `dev` branch, however features don't get their own feature branch, due to the lack of contribution complexity at the moment.
 
