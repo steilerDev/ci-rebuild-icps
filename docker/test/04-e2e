@@ -26,7 +26,8 @@ function assertMetric {
     if grep -Fq "$1" $METRICS_FILE; then
         echo " - PASS: $1"
     else
-        echo " - FAIL: $1"
+        echo " - FAIL: Expected '$1', but got:"
+        cat $METRICS_FILE
         exit 1
     fi
 }

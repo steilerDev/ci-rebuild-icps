@@ -31,7 +31,6 @@
             "writerOpts": {
                 "commitsSort": ["subject"]
             },
-            "preset": "angular",
             "presetConfig": {
               "types": [
                   { "type": "majorfeat","section": "Features",                 "hidden": false},
