@@ -8,5 +8,6 @@ runs:
   using: composite
   steps:
     - id: get-config
+      if: inputs.git-tag != ''
       shell: bash
       run: git push --delete origin ${{ inputs.git-tag }}

@@ -21,7 +21,7 @@ runs:
       uses: ./.github/actions/helper/npm-metadata
       with:
         package: ${{ inputs.app-path }}/package.json
-    - id: build-readme
+    - id: setup-fs
       shell: bash
       run: cp README.md LICENSE ${{ inputs.docs-path }}/${{ steps.get-docs-config.outputs.docs-dir }}/
     - id: build-cli-reference

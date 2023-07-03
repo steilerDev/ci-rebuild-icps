@@ -213,15 +213,16 @@ The `<type>` and `<summary>` fields are mandatory.
 
 Must be one of the following:
 
-* **build**: Changes that affect the build system or external dependencies
-* **ci**: Changes to our CI configuration files and scripts
-* **docs**: Documentation only changes
-* **feat**: A new feature
-* **fix**: A bug fix
-* **perf**: A code change that improves performance
-* **refactor**: A code change that neither fixes a bug nor adds a feature
-* **test**: Adding missing tests or correcting existing tests
-
+* **feat**: A new feature (*minor* release)
+* **fix**: A bug fix (*patch* release)
+* **docs**: Documentation only changes (*patch* release)
+* **refactor**: A code change that neither fixes a bug nor adds a feature (*no* release)
+* **perf**: A code change that improves performance (*patch* release)
+* **test**: Adding missing tests or correcting existing tests (*patch* release)
+* **build**: Changes that affect the build system or external dependencies (*patch* release)
+* **ci**: Changes to the CI configuration files and scripts (*patch* release)
+* **chore**: Dependency bumps and general maintenance task that don't directly affect the features of the application (*patch* release)
+* **style**: Changes that only affect the coding style (*no* release)
 
 ##### Summary
 
@@ -296,4 +297,6 @@ Before merging the PR into `beta` or `main` the following checks are enforced th
 - API tests
 - Docker E2E tests
 
-`beta` and `main` branch can only receive PRs - direct commits are disabled through branch protection rules
+`beta` and `main` branch can only receive PRs - direct commits are disabled through branch protection rules. Those PRs can be created directly through the following quick links:
+- [Stage for Beta Release](https://github.com/steilerdev/icloud-photos-sync/compare/beta...dev?quick_pull=1&title=stage+for+beta+release&body=This+PR+stages+the+dev+branch+for+beta+release)
+- [Stage for Production Release](https://github.com/steilerdev/icloud-photos-sync/compare/main...beta?quick_pull=1&title=stage+for+production+release&body=This+PR+stages+the+beta+branch+for+production+release)

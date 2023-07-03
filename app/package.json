@@ -1,6 +1,6 @@
 {
   "name": "ci-rebuild-icps",
-  "version": "0.0.0-local-dev",
+  "version": "0.0.0-development",
   "description": "One-way sync engine for the iCloud Photos Library into the native file system with archiving capabilities",
   "preferGlobal": true,
   "type": "module",

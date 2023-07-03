@@ -15,7 +15,7 @@ inputs:
 outputs:
   release-url:
     description: The URL to the created release
-    value: https://www.npmjs.com/package/${{ steps.get-npm-metadata.outputs.name }}/v/${{ steps.get-npm-metadata.outputs.version }}
+    value: ${{ steps.get-release-url.outputs.url }}
 runs:
   using: composite
   steps:
@@ -23,20 +23,33 @@ runs:
       shell: bash
       run: |
         export NPM_TOKEN=${{ inputs.npm-token }}
+        cat ${{ inputs.release-dir }}/.releaserc.json
         (cd ${{ inputs.release-dir }}; npx semantic-release)
-        mv ${{ inputs.release-dir }}/*.tgz npm-pack.tgz
-    - id: upload-artifact
-      uses: actions/upload-artifact@v3
-      with:
-        name: ${{ inputs.artifact-name }}
-        path: npm-pack.tgz
+    - id: get-git-metadata
+      uses: ./.github/actions/helper/git-metadata
     - id: get-npm-metadata
       uses: ./.github/actions/helper/npm-metadata
       with:
         package: ${{ inputs.release-dir }}/app/package.json
-    - id: get-git-metadata
-      uses: ./.github/actions/helper/git-metadata
+    - id: package-artifact
+      if: steps.get-git-metadata.outputs.current-tag != ''
+      shell: bash
+      run: mv ${{ inputs.release-dir }}/*.tgz npm-pack.tgz
+    - id: upload-artifact
+      if: steps.get-git-metadata.outputs.current-tag != ''
+      uses: actions/upload-artifact@v3
+      with:
+        name: ${{ inputs.artifact-name }}
+        path: npm-pack.tgz
     - id: clean-tag
       uses: ./.github/actions/helper/clear-git-tag
       with:
-        git-tag: ${{ steps.get-git-metadata.outputs.version }}
+        git-tag: ${{ steps.get-git-metadata.outputs.current-tag }}
+    - id: get-release-url
+      shell: bash
+      run: |
+        if [ "${{ steps.get-git-metadata.outputs.current-tag }}" != "" ]; then
+          echo "url=https://www.npmjs.com/package/${{ steps.get-npm-metadata.outputs.name }}/v/${{ steps.get-npm-metadata.outputs.version }}" >> $GITHUB_OUTPUT
+        else
+          echo "url=no-release" >> $GITHUB_OUTPUT
+        fi
