@@ -1,5 +1,4 @@
 {
-    "extends": "./common.releaserc.json",
     "plugins": [
       [
         "@semantic-release/release-notes-generator",
