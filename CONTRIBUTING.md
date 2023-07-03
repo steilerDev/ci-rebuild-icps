@@ -268,7 +268,7 @@ External PRs should therefore target the dev branch. This will trigger unit test
 
 Once the `dev` branch has reached a certain stage, changes can be staged for release on the `beta` channel. This happens through a Pull Request against the `beta` branch. This will trigger more thorough checks, including building all assets necessary for release, as well as E2E and API tests. Once the pull request has been merged, [semantic release](https://github.com/semantic-release/semantic-release) will perform a release to the `beta` channel on DockerHub and npm.
 
-In order to run a production release, a PR against the main branch is required - triggering the same sanity checks as the `beta` branch. After passing and merging, a production release will deploy the artifacts to DockerHub, npm and also update documentations.
+In order to run a production release, a PR against the main branch is required - triggering the same sanity checks as the `beta` branch. After passing and merging, a production release will deploy the artifacts to DockerHub, npm and also update documentations. After a production release was concluded, merge the main branch into the dev branch, in order for the release tags to be updated.
 
 Before merging the PR into `beta` or `main` the following checks are enforced through branch protection rules:
 - Full build process
