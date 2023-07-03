@@ -24,32 +24,30 @@ runs:
       run: |
         export NPM_TOKEN=${{ inputs.npm-token }}
         (cd ${{ inputs.release-dir }}; npx semantic-release)
-        (mv ${{ inputs.release-dir }}/*.tgz npm-pack.tgz && \
-          echo "no-release=false" >> $GITHUB_OUTPUT) || \
-          echo "no-release=true" >> $GITHUB_OUTPUT
+    - id: get-git-metadata
+      uses: ./.github/actions/helper/git-metadata
+    - id: get-npm-metadata
+      uses: ./.github/actions/helper/npm-metadata
+      with:
+        package: ${{ inputs.release-dir }}/app/package.json
+    - id: package-artifact
+      if: steps.get-git-metadata.outputs.current-tag != ""
+      shell: bash
+      run: mv ${{ inputs.release-dir }}/*.tgz npm-pack.tgz
     - id: upload-artifact
-      if: steps.release-app.outputs.no-release == false
+      if: steps.get-git-metadata.outputs.current-tag != ""
       uses: actions/upload-artifact@v3
       with:
         name: ${{ inputs.artifact-name }}
         path: npm-pack.tgz
-    - id: get-npm-metadata
-      if: steps.release-app.outputs.no-release == false
-      uses: ./.github/actions/helper/npm-metadata
-      with:
-        package: ${{ inputs.release-dir }}/app/package.json
-    - id: get-git-metadata
-      if: steps.release-app.outputs.no-release == false
-      uses: ./.github/actions/helper/git-metadata
     - id: clean-tag
-      if: steps.release-app.outputs.no-release == false
       uses: ./.github/actions/helper/clear-git-tag
       with:
-        git-tag: ${{ steps.get-git-metadata.outputs.version }}
+        git-tag: ${{ steps.get-git-metadata.outputs.current-tag }}
     - id: get-release-url
       shell: bash
       run: |
-        if [ "${{ steps.release-app.outputs.no-release }}" -eq "false" ]; then
+        if [ "${{ steps.get-git-metadata.outputs.current-tag }}" -ne "" ]; then
           echo "url=https://www.npmjs.com/package/${{ steps.get-npm-metadata.outputs.name }}/v/${{ steps.get-npm-metadata.outputs.version }}" >> $GITHUB_OUTPUT
         else
           echo "url=no-release" >> $GITHUB_OUTPUT

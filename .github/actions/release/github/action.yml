@@ -11,7 +11,7 @@ inputs:
 outputs:
   release-url:
     description: The URL to the created release
-    value: https://github.com/${{ steps.get-git-metadata.outputs.owner }}/${{ steps.get-git-metadata.outputs.name }}/releases/tag/${{ steps.get-git-metadata.outputs.version }}
+    value: ${{ steps.get-release-url.outputs.url }}
   
 runs:
   using: composite
@@ -23,3 +23,11 @@ runs:
         (cd ${{ inputs.release-dir }}; npx semantic-release)
     - id: get-git-metadata
       uses: ./.github/actions/helper/git-metadata
+    - id: get-release-url
+      shell: bash
+      run: |
+        if [ "${{ steps.get-git-metadata.outputs.current-tag }}" -ne "" ]; then
+           echo "url=https://github.com/${{ steps.get-git-metadata.outputs.owner }}/${{ steps.get-git-metadata.outputs.name }}/releases/tag/${{ steps.get-git-metadata.outputs.current-tag }}" >> $GITHUB_OUTPUT
+        else
+          echo "url=no-release" >> $GITHUB_OUTPUT
+        fi
