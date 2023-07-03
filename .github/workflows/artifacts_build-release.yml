@@ -59,7 +59,7 @@ jobs:
 
   docker-build:
     runs-on: ubuntu-latest
-    if: (needs.app-release.result == 'skipped' || needs.app-release.result == 'success')
+    if: needs.app-release.result == 'skipped' || needs.app-release.result == 'success'
     needs: [app-build, app-release] # needs app-release, because this will provide a properly versioned app
     permissions: {}
     steps:

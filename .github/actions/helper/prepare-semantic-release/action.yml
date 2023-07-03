@@ -27,6 +27,11 @@ runs:
         cp ${{ inputs.release-config-dir}}/releaserc.json ${{ inputs.release-dir }}/.releaserc.json
 
         tree -a ${{ inputs.release-dir }}
+
+        echo "##### RELEASERC"
+        cat ${{ inputs.release-dir }}/.releaserc.json
+        echo "##### COMMON"
+        cat ${{ inputs.release-dir }}/common.releaserc.json
     - id: setup-node
       uses: actions/setup-node@v3
       with:
