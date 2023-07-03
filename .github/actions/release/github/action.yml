@@ -21,6 +21,9 @@ runs:
       run: |
         export GH_TOKEN=${{ inputs.gh-token }}
         (cd ${{ inputs.release-dir }}; npx semantic-release)
+    - id: clean-after-prod-release
+      if: github.ref_name == 'main'
+      uses: ./.github/actions/helper/clean-after-prod-release
     - id: get-git-metadata
       uses: ./.github/actions/helper/git-metadata
     - id: get-release-url
