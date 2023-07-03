@@ -23,6 +23,7 @@ runs:
       shell: bash
       run: |
         export NPM_TOKEN=${{ inputs.npm-token }}
+        cat ${{ inputs.release-dir }}/.releaserc.json
         (cd ${{ inputs.release-dir }}; npx semantic-release)
     - id: get-git-metadata
       uses: ./.github/actions/helper/git-metadata
