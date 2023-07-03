@@ -129,7 +129,7 @@
     ],
     "conventionalCommits.gitmoji": false,
     "conventionalCommits.promptBody": false,
-    "conventionalCommits.autoCommit": true,
+    "conventionalCommits.autoCommit": false,
     "conventionalCommits.editor.keepAfterSave": false,
     "conventionalCommits.promptCI": false,
     "conventionalCommits.promptFooter": true,
